@@ -17,7 +17,7 @@ app.controller('searchCtrl', function($scope, $http) {
 			$scope.fuzzName = $scope.username.replace($scope.username[1], "○");
 			//}
 
-			$http.get('/js/patient.json').
+			$http.get('https://gist.githubusercontent.com/tony1223/098e45623c73274f7ae3/raw/2c1252bbbdf2f43d10f37d5591717b42787d8a99/gistfile1.json').
 			  success(function(data, status, headers, config) {
 			    // this callback will be called asynchronously
 			    // when the response is available
