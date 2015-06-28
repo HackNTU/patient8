@@ -14,6 +14,7 @@ app.controller('searchCtrl', function($scope, $http) {
 		  });
 		// Simple GET request example :
 		$scope.handleSearch =  function() {
+			var patients = [];
 			if($scope.username == undefined || $scope.username.length < 2 || $scope.username.length > 4) {
 				$scope.validate = true;
 				return;
@@ -27,26 +28,24 @@ app.controller('searchCtrl', function($scope, $http) {
 			  success(function(data, status, headers, config) {
 			    // this callback will be called asynchronously
 			    // when the response is available
-			    $scope.patients = data;
 			    var data = data['data']
 				var matchFound = false;
 
 				for (var i = 0, len = data.length; i < len; i++)
 				{
 				    if(data[i]["姓名"] == $scope.fuzzName && data[i]["性別"] == $scope.sex) {
-				    	$scope.match = true;
-				    	$scope.patient = data[i];
+				    	patients.push(data[i]);
 				    	$scope.patientList = true;
 				    	$scope.notFound = false;
-				    	$scope.sex = 0;
-				    	break;
-				    }
-				    if(i == len-1) {
-				    	$scope.patientList = false;
-				    	$scope.notFound = true;
-				    	$scope.sex = 0;
 				    }
 				}  
+
+				if(patients.length == 0) {
+			    	$scope.patientList = false;
+			    	$scope.notFound = true;
+			    }
+			  	$scope.patients = patients;
+			  	$scope.sex = 0;
 			  }).
 			  error(function(data, status, headers, config) {
 				    	$scope.patientList = false;

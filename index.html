@@ -51,14 +51,14 @@
         <div><input type="text" class="form-control" name="username" ng-model="username" placeholder="請輸入姓名" required></div>
         <br>
         <div ng-show="validate" class="validate">請輸入完整姓名</div>
-        <br>
+        <br>       
         <div><label class="lead">請選擇傷患性別</label></div>
         <select class="form-control" name="sex" ng-model="sex" required ng-init="sex=0">
           <option value="0">男性</option>
           <option value="1">女性</option>
         </select>
         <br>
-        <p><a class="btn btn-lg btn-success" href="#" role="button" ng-click="handleSearch()">提交搜尋</a></p>
+        <p><a class="btn btn-block btn-success" href="#" role="button" ng-click="handleSearch()">提交搜尋</a></p>
         <br>
         <hr>
         <div ng-show="patientList">
@@ -69,8 +69,8 @@
               <th>性別</th>
               <th>年齡</th>
               <th>國籍</th>
-              <th>縣市別</th>
-              <th>收治單位</th>
+              <th>縣市</th>
+              <th>醫院</th>
               <th>醫療檢傷</th>
               <th>救護檢傷</th>
               <th>即時動向</th>
@@ -78,7 +78,7 @@
 <!--               <th>檢傷編號</th>
               <th>刪除註記</th> -->
             </tr>
-            <tr>
+            <tr ng-repeat="patient in patients">
               <td ng-bind="patient['編號']"></td>
               <td ng-bind="patient['姓名']"></td>
               <td ng-bind="patient['性別']"></td>
@@ -102,19 +102,22 @@
         <br>
         <div>
             <p>最後更新時間:{{ updated_at }} / 資料來源:臺北市府資訊局</p>
-          </div>
+            <p class="alert">若於臺北市醫院就醫之傷者家屬，若有相關問題，可於晚上八點前撥打社會局社工科電話聯繫 <a type="tel" href="02-27206528">02-27206528</a><p>
+            <p>捐血中心捐血專線：<a type="tel" href="02-27206528">02-28971600</a>，<a href="https://www.google.com/maps/d/viewer?mid=zGq2VJ5NdtUs.kDYAcwSlWkN8" target="_blank">捐血地點查詢</a></p>
+            <p>捐血請記得帶具身份證字號正本證件喔!</p>
+        </div>
       </div>
 
       <div class="row marketing">
         <div class="social-share">
           <div><h4>所有第一線的消防兄弟姊妹和醫護人員您們辛苦了！</h4></div>
           <div><h4>希望所有患者一切平安，<a href="https://www.facebook.com/hackNTU" target="_blank">HackNTU</a> 為你們加油：）</h4></div>
-<span>
-<script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
-<script type="text/javascript">
-new media_line_me.LineButton({"pc":false,"lang":"zh-hant","type":"a","text":"八仙爆炸案傷患查詢","withUrl":true});
-</script>
-</span>
+          <span>
+          <script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
+          <script type="text/javascript">
+          new media_line_me.LineButton({"pc":false,"lang":"zh-hant","type":"a","text":"八仙爆炸案傷患查詢","withUrl":true});
+          </script>
+          </span>
           <span class="fb-like fb-like-center" data-href="http://hackntu.github.io/patient8/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></span>
           <br>
         </div>
