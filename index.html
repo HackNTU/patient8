@@ -52,8 +52,8 @@
         <br>
         <div><label class="lead">請選擇傷患性別</label></div>
         <select class="form-control" name="sex" ng-model="sex" required ng-init="sex=0">
-          <option value="男">男性</option>
-          <option value="女">女性</option>
+          <option value="0">男性</option>
+          <option value="1">女性</option>
         </select>
         <br>
         <p><a class="btn btn-lg btn-success" href="#" role="button" ng-click="handleSearch()">提交搜尋</a></p>
@@ -70,11 +70,11 @@
               <th>縣市別</th>
               <th>收治單位</th>
               <th>醫療檢傷</th>
-              <th>就護檢傷</th>
+              <th>救護檢傷</th>
               <th>即時動向</th>
-              <th>檢傷編號</th>
+<!--               <th>檢傷編號</th>
               <th>轉診要求</th>
-              <th>刪除註記</th>
+              <th>刪除註記</th> -->
             </tr>
             <tr>
               <td ng-bind="patient['編號']"></td>
@@ -85,10 +85,11 @@
               <td ng-bind="patient['縣市別']"></td>
               <td ng-bind="patient['收治單位']"></td>
               <td ng-bind="patient['醫療檢傷']"></td>
-              <td ng-bind="patient['就護檢傷']"></td>
+              <td ng-bind="patient['救護檢傷']"></td>
               <td ng-bind="patient['即時動向']"></td>
+<!--               <td ng-bind="patient['轉診要求']"></td>
               <td ng-bind="patient['檢傷編號']"></td>
-              <td ng-bind="patient['刪除註記']"></td>
+              <td ng-bind="patient['刪除註記']"></td> -->
             </tr>
           </table>
         </div>  

@@ -12,7 +12,7 @@ app.controller('searchCtrl', function($scope, $http) {
 			}
 
 			$scope.fuzzName = $scope.username.replace($scope.username[1], "○");
-
+			$scope.sex = ($scope.sex == 0) ? '男' : '女';
 			$http.get('https://gist.githubusercontent.com/tony1223/098e45623c73274f7ae3/raw/2c1252bbbdf2f43d10f37d5591717b42787d8a99/gistfile1.json').
 			  success(function(data, status, headers, config) {
 			    // this callback will be called asynchronously
@@ -22,22 +22,25 @@ app.controller('searchCtrl', function($scope, $http) {
 
 				for (var i = 0, len = data.length; i < len; i++)
 				{
-				    if(data[i]["姓名"] == $scope.fuzzName) {
+				    if(data[i]["姓名"] == $scope.fuzzName && data[i]["性別"] == $scope.sex) {
 				    	$scope.match = true;
 				    	$scope.patient = data[i];
 				    	$scope.patientList = true;
 				    	$scope.notFound = false;
+				    	$scope.sex = 0;
 				    	break;
 				    }
 				    if(i == len-1) {
 				    	$scope.patientList = false;
 				    	$scope.notFound = true;
+				    	$scope.sex = 0;
 				    }
 				}  
 			  }).
 			  error(function(data, status, headers, config) {
 				    	$scope.patientList = false;
-				    	$scope.notFound = true;			  	
+				    	$scope.notFound = true;	
+				    	$scope.sex = 0;
 			  });
 		}
 });
