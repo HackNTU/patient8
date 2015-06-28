@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>八仙爆炸案傷患查詢(最後更新時間)</title>
+        <title>八仙爆炸案傷患查詢(最後更新時間{{ updated_at }})</title>
         <meta name="description" content="八仙爆炸案傷患查詢網站，天佑臺灣, 粉塵, 爆炸, 八仙, 閃燃, 八仙爆炸">
         <meta name="keywords" content="八仙爆炸案傷患查詢網站，天佑臺灣, 粉塵, 爆炸, 八仙, 閃燃, 八仙爆炸">
         <meta name="author" content="HackNTU 臺大黑客松">
@@ -43,8 +43,10 @@
       <div class="header clearfix">
         <nav>
           <h3 class="text-muted">八仙爆炸案傷患查詢</h3>
+          <span </span>
         </nav>
-        <p class="alert">若於臺北市醫院就醫之傷者家屬有相關問題，可於晚上八點前撥打社會局社工科電話聯繫 <a href="#">02-27206528</a><p>          
+        <div>最後更新時間: <span ng-class="updated" ng-bind="updated_at"><span> </div>         
+       
       </div>
 
       <div class="jumbotron">
@@ -102,7 +104,8 @@
         </div>
         <br>
         <div>
-            <p>最後更新時間:{{ updated_at }} / 資料來源:臺北市府資訊局</p>
+            <p>資料來源:臺北市府資訊局</p>
+            <p class="alert">若於臺北市醫院就醫之傷者家屬有相關問題，可於晚上八點前撥打社會局社工科電話聯繫 <a href="#">02-27206528</a><p>   
             <p>捐血中心捐血專線：<a href="#">02-28971600</a>，<a href="https://www.google.com/maps/d/viewer?mid=zGq2VJ5NdtUs.kDYAcwSlWkN8" target="_blank">捐血地點查詢</a></p>
             <p>捐血請記得帶具身份證正本喔!</p>
         </div>
