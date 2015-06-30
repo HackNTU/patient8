@@ -72,26 +72,22 @@
               <th>性別</th>
               <th>年齡</th>
               <th>國籍</th>
-              <th>縣市</th>
               <th>醫院</th>
               <th>醫療檢傷</th>
               <th>救護檢傷</th>
-              <th>即時動向</th>
               <th>轉診要求</th>              
 <!--               <th>檢傷編號</th>
               <th>刪除註記</th> -->
             </tr>
             <tr ng-repeat="patient in patients">
-              <td ng-bind="patient['編號']"></td>
-              <td ng-bind="patient['姓名']"></td>
-              <td ng-bind="patient['性別']"></td>
-              <td ng-bind="patient['年齡']"></td>
-              <td ng-bind="patient['國籍']"></td>
-              <td ng-bind="patient['縣市別']"></td>
-              <td ng-bind="patient['收治單位']"></td>
+              <td><span ng-bind="patient['編號']"></span></td>
+              <td><span ng-bind="patient['姓名']"></span></td>
+              <td><span ng-bind="patient['性別']"></span></td>
+              <td><span ng-bind="patient['年齡']"></span></td>
+              <td><span ng-bind="patient['國籍']"></span> (<span ng-bind="patient['縣市別']"></span>)</td>
+              <td><span ng-bind="patient['收治單位']"></span> <span class="label label-primary" ng-bind="patient['即時動向']"></span> </td>
               <td ng-bind="patient['醫療檢傷']"></td>
               <td ng-bind="patient['救護檢傷']"></td>
-              <td ng-bind="patient['即時動向']"></td>              
               <td ng-bind="patient['轉診要求']"></td>              
 <!--               <td ng-bind="patient['轉診要求']"></td>
               <td ng-bind="patient['檢傷編號']"></td>
